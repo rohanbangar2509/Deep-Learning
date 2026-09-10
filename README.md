@@ -1,0 +1,126 @@
+# 🧠 Deep Learning
+
+Welcome to my Deep Learning repository.
+
+This repository documents my journey of learning and exploring Deep Learning concepts through hands-on implementations, experiments, assignments, and projects.
+
+The goal of this repository is to understand the fundamentals of Deep Learning and gradually progress toward more advanced architectures and real-world applications.
+
+---
+
+## 📚 What I Have Explored
+
+### 1. Neural Network Fundamentals
+
+I have explored the fundamental concepts behind neural networks, including:
+
+- Artificial Neural Networks (ANN)
+- Neurons and Layers
+- Weights and Biases
+- Forward Propagation
+- Backpropagation
+- Activation Functions
+- Loss Functions
+- Gradient Descent
+- Optimizers
+- Learning Rate
+- Epochs
+- Batch Size
+
+---
+
+### 2. Deep Learning with TensorFlow & Keras
+
+Hands-on implementation using:
+
+- TensorFlow
+- Keras
+- NumPy
+- Pandas
+- Matplotlib
+- Jupyter Notebook
+
+I have worked with model creation, compilation, training, evaluation, and prediction using TensorFlow/Keras.
+
+---
+
+### 3. Image Classification
+
+I have explored Deep Learning for image classification, including:
+
+- Image preprocessing
+- Normalization
+- Dataset exploration
+- Visualization of images
+- Neural networks for image classification
+- Model evaluation
+- Prediction on unseen images
+
+---
+
+## 🚀 Projects & Implementations
+
+### 🔢 MNIST Handwritten Digit Classification
+
+A Deep Learning project for classifying handwritten digits from the MNIST dataset using TensorFlow/Keras.
+
+**Concepts explored:**
+
+- Dataset loading
+- Data preprocessing
+- Image normalization
+- Neural network architecture
+- Model training
+- Model evaluation
+- Digit prediction
+
+📂 **Project:** [MNIST Digit Classification](./mnist-digit-classification/)
+
+---
+
+## 🔬 Topics I Plan to Explore
+
+- [ ] Convolutional Neural Networks (CNN)
+- [ ] CNN Image Classification
+- [ ] Data Augmentation
+- [ ] Transfer Learning
+- [ ] AlexNet
+- [ ] VGG
+- [ ] ResNet
+- [ ] EfficientNet
+- [ ] Object Detection
+- [ ] Recurrent Neural Networks (RNN)
+- [ ] LSTM
+- [ ] GRU
+- [ ] Autoencoders
+- [ ] Generative Deep Learning
+- [ ] Model Deployment
+
+---
+
+## 🛠️ Tools & Technologies
+
+- Python
+- TensorFlow
+- Keras
+- NumPy
+- Pandas
+- Matplotlib
+- Jupyter Notebook
+- Git
+- GitHub
+
+---
+
+## 📁 Repository Structure
+
+```text
+Deep-Learning/
+│
+├── mnist-digit-classification/
+│   ├── notebooks/
+│   └── README.md
+│
+├── .gitignore
+├── requirements.txt
+└── README.md
