@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# Trained models
+*.keras
+*.h5
+*.pt
+*.pth
+
+# Logs / experiment tracking
+logs/
+runs/
+wandb/
+
+# IDE
+.vscode/
+.idea/
+
