@@ -1,81 +1,228 @@
-# MNIST Handwritten Digit Classification using TensorFlow/Keras
+# Forward Propagation and Backpropagation using TensorFlow/Keras
 
-A simple deep learning project that uses a feed-forward neural network built with TensorFlow/Keras to classify handwritten digits from the MNIST dataset.
+A practical deep learning implementation that uses a Multilayer Perceptron (MLP) built with TensorFlow/Keras to understand **forward propagation and backpropagation** using the Iris dataset.
+
+The project also studies how different **learning rates and numbers of epochs** affect neural network training and model performance.
 
 ## 📌 Project Overview
 
-This project demonstrates the basic workflow of building a neural network for image classification:
+This project demonstrates the fundamental training process of a neural network:
 
-- Loading the MNIST dataset
+- Loading the Iris dataset
 - Exploring the dataset
-- Normalizing image pixel values
-- Visualizing handwritten digits
-- Building a neural network using Keras
-- Compiling the model
-- Training the model
+- Checking dataset information and statistics
+- Checking target class distribution
+- Splitting data into training and testing sets
+- Standardizing input features
+- Building a Multilayer Perceptron
+- Compiling the neural network
+- Understanding forward propagation
+- Calculating loss
+- Understanding backpropagation
+- Updating model weights
+- Training the neural network
 - Evaluating model performance
 - Generating predictions
-- Visualizing classification results
-- Saving the trained model
+- Creating a confusion matrix
+- Generating a classification report
+- Studying the effect of different learning rates
+- Studying the effect of different numbers of epochs
 
-The model uses a simple fully connected neural network with a `Flatten` layer, one hidden `Dense` layer with ReLU activation, and a 10-class output layer with Softmax activation.
+The notebook focuses on understanding how a neural network learns through **forward propagation, loss calculation, backpropagation, and weight updates**.
 
 ## 🧠 Model Architecture
 
+The project uses a simple Multilayer Perceptron with two hidden layers.
+
 ```text
-Input Image
-   │
-   │ 28 × 28 pixels
-   ▼
-Flatten
-   │
-   │ 784 features
-   ▼
+Input Features
+     │
+     │ 4 Features
+     ▼
 Dense Layer
-   │
-   │ 128 neurons
-   │ ReLU activation
-   ▼
-Dense Output Layer
-   │
-   │ 10 neurons
-   │ Softmax activation
-   ▼
-Predicted Digit
-   │
-   └── 0, 1, 2, ..., 9
+     │
+     │ 16 Neurons
+     │ ReLU
+     ▼
+Dense Layer
+     │
+     │ 8 Neurons
+     │ ReLU
+     ▼
+Output Layer
+     │
+     │ 3 Neurons
+     │ Softmax
+     ▼
+Predicted Iris Class
+     │
+     ├── Class 0
+     ├── Class 1
+     └── Class 2
 ```
+
+The neural network is implemented using:
+
+```python
+model = Sequential([
+    Dense(16, activation='relu', input_shape=(4,)),
+    Dense(8, activation='relu'),
+    Dense(3, activation='softmax')
+])
+```
+
+## 🔄 Forward Propagation and Backpropagation
+
+During neural network training, the following process takes place:
+
+```text
+Input Data
+    │
+    ▼
+Forward Propagation
+    │
+    ▼
+Predictions
+    │
+    ▼
+Loss Calculation
+    │
+    ▼
+Backpropagation
+    │
+    ▼
+Gradient Calculation
+    │
+    ▼
+Weight Update
+    │
+    ▼
+Next Training Iteration
+```
+
+### Forward Propagation
+
+Forward propagation passes the input features through the neural network layers to generate predictions.
+
+```text
+Input → Hidden Layer 1 → Hidden Layer 2 → Output → Prediction
+```
+
+### Backpropagation
+
+Backpropagation uses the calculated loss to determine how the model weights contributed to the prediction error.
+
+The gradients are propagated backward through the network and the optimizer updates the weights to reduce the loss.
+
+The notebook uses the **Adam optimizer** for weight updates.
 
 ## 📊 Dataset
 
-The project uses the **MNIST handwritten digit dataset**, which contains grayscale images of handwritten digits from 0 to 9.
+The project uses the **Iris dataset** provided by Scikit-learn.
 
-The images have dimensions of:
+The dataset contains:
+
+- 150 samples
+- 4 input features
+- 3 target classes
+
+The four input features are:
 
 ```text
-28 × 28 pixels
+Sepal Length
+Sepal Width
+Petal Length
+Petal Width
 ```
 
-The dataset is loaded directly using:
+The target classes are represented as:
+
+```text
+0
+1
+2
+```
+
+The dataset contains 50 samples for each class, making the target distribution balanced.
+
+The dataset is loaded using:
 
 ```python
-tf.keras.datasets.mnist.load_data()
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+
+X = iris.data
+y = iris.target
 ```
 
-The dataset is provided with separate training and test sets.
+The notebook confirms:
+
+```text
+Feature Shape : (150, 4)
+Target Shape : (150,)
+```
 
 ## ⚙️ Data Preprocessing
 
-The original pixel values range from `0` to `255`.
+### Train-Test Split
 
-The images are normalized to the range `0` to `1` using:
+The dataset is divided into:
 
-```python
-train_images = train_images / 255.0
-test_images = test_images / 255.0
+```text
+80% Training Data
+20% Testing Data
 ```
 
-Normalization helps provide appropriately scaled input values for neural network training.
+using:
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+```
+
+This produces:
+
+```text
+Training Samples → 120
+Testing Samples  → 30
+```
+
+### Feature Scaling
+
+The input features are standardized using `StandardScaler`.
+
+```python
+scaler = StandardScaler()
+
+X_train = scaler.fit_transform(X_train)
+
+X_test = scaler.transform(X_test)
+```
+
+Feature scaling helps neural networks learn effectively when input features have different numerical ranges.
+
+## ⚙️ Model Compilation
+
+The model is compiled using:
+
+```python
+model.compile(
+    optimizer='adam',
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy']
+)
+```
+
+The main components are:
+
+- **Optimizer:** Adam
+- **Loss Function:** Sparse Categorical Crossentropy
+- **Evaluation Metric:** Accuracy
 
 ## 🛠️ Technologies Used
 
@@ -83,6 +230,7 @@ Normalization helps provide appropriately scaled input values for neural network
 - TensorFlow
 - Keras
 - NumPy
+- Pandas
 - Matplotlib
 - Scikit-learn
 
@@ -97,7 +245,7 @@ git clone https://github.com/rohanbangar2509/Deep-Learning.git
 ### 2. Navigate to the project directory
 
 ```bash
-cd Deep-Learning/mnist-digit-classification
+cd Deep-Learning/forward-backward-propogation
 ```
 
 ### 3. Create a virtual environment
@@ -135,40 +283,154 @@ jupyter notebook
 Open:
 
 ```text
-notebooks/mnist_digit_classification.ipynb
+notebooks/forward_backward_propogation.ipynb
 ```
 
 Run the notebook from top to bottom.
 
 ## 📈 Results
 
-After training for 3 epochs, the model achieved approximately:
+The main MLP model was trained for **50 epochs** using the Adam optimizer.
+
+The final evaluation on the test dataset produced:
 
 ```text
-Test Accuracy: 97.23%
+Test Accuracy: 76.67%
+Test Loss: 0.5423
 ```
 
-The notebook also provides visualizations for the dataset, training performance, predictions, and classification results.
+The confusion matrix was:
+
+```text
+[[10, 0, 0],
+ [ 0, 8, 1],
+ [ 0, 6, 5]]
+```
+
+The classification report showed:
+
+```text
+Class 0:
+Precision: 1.00
+Recall:    1.00
+F1-score: 1.00
+
+Class 1:
+Precision: 0.57
+Recall:    0.89
+F1-score: 0.70
+
+Class 2:
+Precision: 0.83
+Recall:    0.45
+F1-score: 0.59
+```
+
+The notebook also provides visualizations for:
+
+- Training accuracy
+- Validation accuracy
+- Training loss
+- Validation loss
+- Confusion matrix
+- Classification performance
+
+## 🎯 Effect of Different Learning Rates
+
+The notebook compares four learning rates:
+
+```text
+0.1
+0.01
+0.001
+0.0001
+```
+
+The observed results were:
+
+```text
+Learning Rate: 0.1     Accuracy: 1.0000
+Learning Rate: 0.01    Accuracy: 1.0000
+Learning Rate: 0.001   Accuracy: 0.9000
+Learning Rate: 0.0001  Accuracy: 0.3667
+```
+
+### Observations
+
+- **0.1:** May converge quickly but can overshoot the optimum and become unstable.
+- **0.01:** Often learns faster while remaining stable.
+- **0.001:** Common default for Adam and usually provides stable learning.
+- **0.0001:** Very stable but learns slowly and may require more epochs.
+
+This experiment demonstrates that the learning rate significantly affects the speed and stability of neural network training.
+
+## ⏱️ Effect of Different Epochs
+
+The notebook also studies the effect of different numbers of epochs.
+
+The tested values were:
+
+```text
+10 Epochs
+30 Epochs
+50 Epochs
+100 Epochs
+```
+
+The observed results were:
+
+```text
+Epochs: 10   Accuracy: 0.8667
+Epochs: 30   Accuracy: 0.8333
+Epochs: 50   Accuracy: 0.8667
+Epochs: 100  Accuracy: 0.9667
+```
+
+### Observations
+
+- **10 epochs:** The model may not have learned enough, resulting in lower accuracy and possible underfitting.
+- **30–50 epochs:** The model continues learning useful feature representations.
+- **100 epochs:** The experiment achieved higher accuracy, although excessive training may lead to overfitting if validation performance stops improving.
+
+This experiment demonstrates that the number of epochs can significantly influence model performance.
 
 ## 🔍 Project Workflow
 
 ```text
-MNIST Dataset
+Iris Dataset
       │
       ▼
 Load Dataset
       │
       ▼
-Normalize Pixel Values
+Explore Dataset
       │
       ▼
-Visualize Images
+Check Classes & Statistics
       │
       ▼
-Build Neural Network
+Train-Test Split
+      │
+      ▼
+Feature Scaling
+      │
+      ▼
+Build MLP
       │
       ▼
 Compile Model
+      │
+      ▼
+Forward Propagation
+      │
+      ▼
+Loss Calculation
+      │
+      ▼
+Backpropagation
+      │
+      ▼
+Weight Update
       │
       ▼
 Train Model
@@ -180,16 +442,25 @@ Evaluate Model
 Generate Predictions
       │
       ▼
-Analyze Results
+Confusion Matrix
+      │
+      ▼
+Classification Report
+      │
+      ▼
+Learning Rate Experiment
+      │
+      ▼
+Epoch Experiment
 ```
 
 ## 📁 Repository Structure
 
 ```text
-mnist-digit-classification/
+forward-backward-propogation/
 │
 ├── notebooks/
-│   └── mnist_digit_classification.ipynb
+│   └── forward_backward_propogation.ipynb
 │
 ├── models/
 │   └── README.md
@@ -200,49 +471,54 @@ mnist-digit-classification/
 └── LICENSE
 ```
 
-## 💾 Trained Model
-
-The trained `.keras` model is not included in the Git repository by default.
-
-The model can be generated by running the final section of the notebook:
-
-```python
-my_model.save("mnist_model.keras")
-```
-
-The trained model file is excluded through `.gitignore` to keep the repository lightweight.
-
 ## 📚 Key Concepts Demonstrated
 
 This project demonstrates the following deep learning concepts:
 
-- Image preprocessing
-- Feature normalization
-- Neural network architecture
-- Flattening image data
+- Multilayer Perceptron
+- Neural network fundamentals
+- Forward propagation
+- Loss calculation
+- Backpropagation
+- Gradient-based learning
+- Weight updates
 - Dense layers
 - ReLU activation
 - Softmax activation
 - Adam optimizer
 - Sparse categorical cross-entropy
+- Feature scaling
 - Model training
 - Model evaluation
 - Classification accuracy
-- Prediction analysis
+- Confusion matrix
+- Precision
+- Recall
+- F1-score
+- Learning rate
+- Epochs
+- Underfitting
+- Overfitting
+- Training and validation curves
 
 ## 🔮 Future Improvements
 
 Possible improvements include:
 
-- Compare different learning rates
-- Experiment with different numbers of epochs
-- Add additional hidden layers
-- Add Dropout for regularization
+- Visualize forward propagation mathematically
+- Implement forward propagation manually using NumPy
+- Implement backpropagation manually using NumPy
+- Compare manual backpropagation with TensorFlow/Keras
+- Experiment with additional hidden layers
+- Experiment with different numbers of neurons
+- Compare different activation functions
 - Compare different optimizers
-- Add a confusion matrix
-- Compare the neural network with CNN architectures
+- Perform systematic learning-rate tuning
+- Add early stopping
+- Add a validation split
+- Visualize decision boundaries
 - Perform hyperparameter tuning
-- Build a simple web interface for digit prediction
+- Compare the MLP with traditional machine learning classifiers
 
 ## 👨‍💻 Author
 
