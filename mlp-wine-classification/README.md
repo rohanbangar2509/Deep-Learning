@@ -1,4 +1,4 @@
-# MLP Wine Classification using Scikit-learn
+# MLP Wine Classification using Scikit-learn 
 
 A deep learning project that uses Multi-Layer Perceptron (MLP) classifiers built with Scikit-learn to classify wines into three different categories based on their chemical properties.
 
