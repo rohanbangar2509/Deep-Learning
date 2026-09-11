@@ -58,11 +58,30 @@ I have explored Deep Learning for image classification, including:
 
 ---
 
+### 4. Multilayer Perceptron (MLP)
+
+I have explored **Multilayer Perceptrons (MLP)** for classification tasks.
+
+Concepts explored include:
+
+- MLP architecture
+- Input, hidden, and output layers
+- Activation functions
+- Forward propagation
+- Backpropagation
+- Loss functions
+- Optimizers
+- Model training
+- Model evaluation
+- Classification using tabular data
+
+---
+
 ## 🚀 Projects & Implementations
 
 ### 🔢 MNIST Handwritten Digit Classification
 
-A Deep Learning project for classifying handwritten digits from the MNIST dataset using TensorFlow/Keras.
+A Deep Learning project for classifying handwritten digits from the **MNIST dataset** using TensorFlow/Keras.
 
 **Concepts explored:**
 
@@ -74,27 +93,49 @@ A Deep Learning project for classifying handwritten digits from the MNIST datase
 - Model evaluation
 - Digit prediction
 
-📂 **Project:** [MNIST Digit Classification](./mnist-digit-classification/)
+📂 **Project:** [MNIST Digit Classification](./mnist-digit-classification)
+
+---
+
+### 🍷 MLP Wine Classification
+
+A classification project using a **Multilayer Perceptron (MLP)** on the Wine dataset.
+
+The project focuses on understanding how neural networks can be applied to structured/tabular data for multi-class classification.
+
+**Concepts explored:**
+
+- Wine dataset
+- Data preprocessing
+- Feature scaling
+- Train-test split
+- MLP Classifier
+- Neural network architecture
+- Model training
+- Model evaluation
+- Classification performance
+
+📂 **Project:** [MLP Wine Classification](./mlp-wine-classification)
 
 ---
 
 ## 🔬 Topics I Plan to Explore
 
-- [ ] Convolutional Neural Networks (CNN)
-- [ ] CNN Image Classification
-- [ ] Data Augmentation
-- [ ] Transfer Learning
-- [ ] AlexNet
-- [ ] VGG
-- [ ] ResNet
-- [ ] EfficientNet
-- [ ] Object Detection
-- [ ] Recurrent Neural Networks (RNN)
-- [ ] LSTM
-- [ ] GRU
-- [ ] Autoencoders
-- [ ] Generative Deep Learning
-- [ ] Model Deployment
+- Convolutional Neural Networks (CNN)
+- CNN Image Classification
+- Data Augmentation
+- Transfer Learning
+- AlexNet
+- VGG
+- ResNet
+- EfficientNet
+- Object Detection
+- Recurrent Neural Networks (RNN)
+- LSTM
+- GRU
+- Autoencoders
+- Generative Deep Learning
+- Model Deployment
 
 ---
 
@@ -103,6 +144,7 @@ A Deep Learning project for classifying handwritten digits from the MNIST datase
 - Python
 - TensorFlow
 - Keras
+- Scikit-learn
 - NumPy
 - Pandas
 - Matplotlib
@@ -118,6 +160,10 @@ A Deep Learning project for classifying handwritten digits from the MNIST datase
 Deep-Learning/
 │
 ├── mnist-digit-classification/
+│   ├── notebooks/
+│   └── README.md
+│
+├── mlp-wine-classification/
 │   ├── notebooks/
 │   └── README.md
 │
