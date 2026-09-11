@@ -38,6 +38,7 @@ Hands-on implementation using:
 - NumPy
 - Pandas
 - Matplotlib
+- Scikit-learn
 - Jupyter Notebook
 
 I have worked with model creation, compilation, training, evaluation, and prediction using TensorFlow/Keras.
@@ -49,10 +50,12 @@ I have worked with model creation, compilation, training, evaluation, and predic
 I have explored Deep Learning for image classification, including:
 
 - Image preprocessing
-- Normalization
+- Image normalization
 - Dataset exploration
-- Visualization of images
+- Image visualization
 - Neural networks for image classification
+- Convolutional Neural Networks (CNN)
+- Model training
 - Model evaluation
 - Prediction on unseen images
 
@@ -74,6 +77,27 @@ Concepts explored include:
 - Model training
 - Model evaluation
 - Classification using tabular data
+
+---
+
+### 5. Convolutional Neural Networks (CNN)
+
+I have explored **Convolutional Neural Networks (CNNs)** for image classification.
+
+Concepts explored include:
+
+- CNN architecture
+- Convolutional layers
+- Filters and kernels
+- Feature maps
+- Pooling layers
+- Flattening
+- Fully connected layers
+- Image preprocessing
+- Image normalization
+- Model training
+- Model evaluation
+- Multi-class image classification
 
 ---
 
@@ -139,10 +163,34 @@ The project focuses on understanding how neural networks can be applied to struc
 
 ---
 
+### 🚦 CNN-Based Traffic Sign Classification
+
+A Deep Learning project that uses a **Convolutional Neural Network (CNN)** to classify traffic sign images into **43 different classes** using the **German Traffic Sign Recognition Benchmark (GTSRB)** dataset.
+
+The model was developed and trained using **TensorFlow/Keras** with GPU acceleration.
+
+**Concepts explored:**
+
+- Convolutional Neural Networks
+- Image preprocessing
+- Image resizing
+- Image normalization
+- Dataset exploration
+- Data visualization
+- Convolutional layers
+- Pooling layers
+- Feature extraction
+- Multi-class classification
+- Model training
+- Model evaluation
+- Prediction on unseen traffic sign images
+
+📂 **Project:** [Traffic Sign CNN](./traffic-sign-cnn)
+
+---
+
 ## 🔬 Topics I Plan to Explore
 
-- Convolutional Neural Networks (CNN)
-- CNN Image Classification
 - Data Augmentation
 - Transfer Learning
 - AlexNet
@@ -151,8 +199,8 @@ The project focuses on understanding how neural networks can be applied to struc
 - EfficientNet
 - Object Detection
 - Recurrent Neural Networks (RNN)
-- LSTM
-- GRU
+- Long Short-Term Memory (LSTM)
+- Gated Recurrent Unit (GRU)
 - Autoencoders
 - Generative Deep Learning
 - Model Deployment
@@ -190,6 +238,13 @@ Deep-Learning/
 ├── mlp-wine-classification/
 │   ├── notebooks/
 │   └── README.md
+│
+├── traffic-sign-cnn/
+│   ├── models/
+│   ├── notebooks/
+|   ├── .gitignore
+|   ├── README.md
+│   └── requirements.txt
 │
 ├── .gitignore
 ├── requirements.txt
