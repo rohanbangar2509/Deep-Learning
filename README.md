@@ -79,6 +79,26 @@ Concepts explored include:
 
 ## 🚀 Projects & Implementations
 
+### 🔄 Forward & Backward Propagation
+
+An implementation focused on understanding the fundamental learning process of neural networks.
+
+The project explores how data passes through a neural network during **forward propagation** and how errors are propagated backward during **backpropagation** to update weights and biases.
+
+**Concepts explored:**
+
+- Forward Propagation
+- Backpropagation
+- Weights and Biases
+- Activation Functions
+- Loss Calculation
+- Gradient Descent
+- Parameter Updates
+
+📂 **Project:** [Forward & Backward Propagation](./forward-backward-propagation)
+
+---
+
 ### 🔢 MNIST Handwritten Digit Classification
 
 A Deep Learning project for classifying handwritten digits from the **MNIST dataset** using TensorFlow/Keras.
@@ -158,6 +178,10 @@ The project focuses on understanding how neural networks can be applied to struc
 
 ```text
 Deep-Learning/
+│
+├── forward-backward-propagation/
+│   ├── notebooks/
+│   └── README.md
 │
 ├── mnist-digit-classification/
 │   ├── notebooks/
