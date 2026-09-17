@@ -1,161 +1,145 @@
 # LSTM-Based Sales Forecasting using TensorFlow/Keras
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#lstm-based-sales-forecasting-using-tensorflowkeras)
+A Deep Learning project that uses a **Long Short-Term Memory (LSTM)** neural network to forecast future sales based on historical time-series sales data.
 
-A deep learning project that uses a Long Short-Term Memory (LSTM) neural network built with TensorFlow/Keras to forecast daily sales using historical time-series data.
+---
 
 ## 📌 Project Overview
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-project-overview)
+Time-series forecasting is the process of predicting future values using previously observed data.
 
-This project demonstrates the complete workflow of building an LSTM-based model for time-series forecasting:
+In this project, an **LSTM-based Deep Learning model** is developed to forecast daily sales.
 
-* Loading historical sales data
-* Exploring the dataset
-* Converting dates into time-series format
-* Visualizing sales trends
-* Splitting data chronologically into training and testing sets
-* Normalizing sales values
-* Creating time-series sequences using a sliding window
-* Building an LSTM neural network using Keras
-* Compiling the model
-* Training the model
-* Generating sales predictions
-* Evaluating model performance using MAE and RMSE
-* Visualizing actual vs predicted sales
-* Saving the trained model and prediction results
+The project demonstrates:
 
-The model uses the previous **7 days of sales** to predict the sales for the following day.
+* Time-series data preprocessing
+* Data normalization
+* Sliding-window sequence creation
+* LSTM model development
+* Model training and validation
+* Sales prediction
+* Model evaluation using MAE and RMSE
+* Visualization of actual vs predicted sales
 
-## 🧠 Model Architecture
+---
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-model-architecture)
+## 🎯 Objective
 
-```text
-Historical Sales
-       │
-       │ Previous 7 Days
-       ▼
-   LSTM Layer
-       │
-       │ 50 units
-       ▼
-   LSTM Layer
-       │
-       │ 50 units
-       ▼
-  Dense Output
-       │
-       │ 1 unit
-       ▼
-Next-Day Sales Prediction
-```
+Develop an **LSTM-based model for time-series forecasting** using a sales dataset.
 
-**svg**
+The model learns patterns from historical sales data and predicts future sales values.
 
-The model consists of two LSTM layers followed by a Dense output layer.
-
-### Model Configuration
-
-```text
-Lookback Window : 7 days
-LSTM Layers     : 2
-LSTM Units      : 50
-Output Units    : 1
-Optimizer       : Adam
-Loss Function   : Mean Squared Error
-Epochs          : 50
-Batch Size      : 32
-```
+---
 
 ## 📊 Dataset
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-dataset)
+The project uses the **Store Item Demand Forecasting Challenge** dataset.
 
-The project uses the **Store Item Demand Forecasting** dataset.
+For simplicity, the project uses:
 
-For this project, the sales history of **Store 1 and Item 1** was selected to create a focused univariate time-series forecasting problem.
+* **Store:** 1
+* **Item:** 1
+* **Time period:** 2013-01-01 to 2017-12-31
+* **Total observations:** 1,826 daily records
 
-The resulting dataset contains:
+### Dataset Columns
+
+| Column  | Description              |
+| ------- | ------------------------ |
+| `date`  | Date of the sales record |
+| `sales` | Number of units sold     |
+
+The original dataset contains multiple stores and items. A single store-item combination is used to create a simple univariate time-series forecasting problem.
+
+---
+
+## 🧠 Model Architecture
+
+The LSTM model consists of:
 
 ```text
-1,826 daily sales observations
-2013-01-01 to 2017-12-31
+Input Sequence
+      │
+      ▼
+LSTM Layer (50 units)
+      │
+      ▼
+LSTM Layer (50 units)
+      │
+      ▼
+Dense Layer (1 unit)
+      │
+      ▼
+Predicted Sales
 ```
 
-The working dataset contains two columns:
+### Model Configuration
 
-```text
-date
-sales
-```
+* **Input:** 7 previous days of sales
+* **LSTM Layer 1:** 50 units
+* **LSTM Layer 2:** 50 units
+* **Output Layer:** 1 neuron
+* **Optimizer:** Adam
+* **Loss Function:** Mean Squared Error
+* **Epochs:** 50
+* **Batch Size:** 32
 
-**svg**
-
-The dataset is stored in:
-
-```text
-data/sales.csv
-```
+---
 
 ## ⚙️ Data Preprocessing
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#%EF%B8%8F-data-preprocessing)
-
 The following preprocessing steps were performed:
 
-### 1. Date Conversion
+### 1. Convert Date
 
-The `date` column was converted into a datetime format.
+The `date` column is converted into a Pandas datetime format.
 
-```python
-df["date"] = pd.to_datetime(df["date"])
-```
+### 2. Sort Data
 
-### 2. Chronological Sorting
-
-The observations were sorted according to their date to preserve the time-series order.
+The dataset is sorted chronologically.
 
 ### 3. Train-Test Split
 
-The dataset was divided chronologically:
+The dataset is divided chronologically:
 
 ```text
 80% → Training Data
 20% → Testing Data
 ```
 
-Random shuffling was not used because the temporal order of observations is important in time-series forecasting.
+### 4. Feature Scaling
 
-### 4. Normalization
+Sales values are normalized using:
 
-Sales values were normalized to the range `0` to `1` using `MinMaxScaler`.
-
-```python
-scaler = MinMaxScaler(feature_range=(0, 1))
+```text
+MinMaxScaler
 ```
 
-### 5. Sequence Generation
+The scaler is fitted only on the training data to avoid data leakage.
 
-A lookback window of 7 days was used.
+### 5. Sequence Creation
+
+A **7-day lookback window** is used.
+
+For example:
 
 ```text
 Day 1 ─┐
 Day 2  │
 Day 3  │
-Day 4  ├──→ LSTM → Day 8 Prediction
+Day 4  ├──► LSTM ──► Day 8 Prediction
 Day 5  │
 Day 6  │
 Day 7 ─┘
 ```
 
-This converts the time-series data into sequences suitable for LSTM training.
+The model uses the previous 7 days of sales to predict the next day's sales.
+
+---
 
 ## 🛠️ Technologies Used
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#%EF%B8%8F-technologies-used)
-
-* Python 3.10+
+* Python
 * TensorFlow
 * Keras
 * NumPy
@@ -164,83 +148,75 @@ This converts the time-series data into sequences suitable for LSTM training.
 * Scikit-learn
 * Jupyter Notebook
 
+---
+
 ## 🚀 Getting Started
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-getting-started)
-
-### 1. Clone the repository
-
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#1-clone-the-repository)
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/rohanbangar2509/Deep-Learning.git
 ```
 
-**svg**
-
-### 2. Navigate to the project directory
-
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#2-navigate-to-the-project-directory)
+Navigate to the project:
 
 ```bash
 cd Deep-Learning/lstm-sales-forecasting
 ```
 
-**svg**
+---
 
-### 3. Create a virtual environment
-
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#3-create-a-virtual-environment)
+### 2. Create Virtual Environment
 
 ```bash
-python -m venv venv
+python -m venv .venv
 ```
 
-**svg**
-
-### 4. Activate the virtual environment
-
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#4-activate-the-virtual-environment)
-
-#### Windows
-
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#windows)
+Activate it on Linux/WSL:
 
 ```bash
-venv\Scripts\activate
+source .venv/bin/activate
 ```
 
-**svg**
-
-#### Linux/macOS
-
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#linuxmacos)
+On Windows:
 
 ```bash
-source venv/bin/activate
+.venv\Scripts\activate
 ```
 
-**svg**
+---
 
-### 5. Install dependencies
-
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#5-install-dependencies)
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**svg**
+---
 
-### 6. Launch Jupyter Notebook
+### 4. Run the Training Script
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#6-launch-jupyter-notebook)
+```bash
+python src/train.py
+```
+
+The script trains the LSTM model and generates:
+
+* Trained model
+* Predictions
+* Evaluation metrics
+* Training loss graph
+* Actual vs predicted graph
+
+---
+
+### 5. Run the Jupyter Notebook
+
+Start Jupyter:
 
 ```bash
 jupyter notebook
 ```
-
-**svg**
 
 Open:
 
@@ -248,54 +224,20 @@ Open:
 notebooks/LSTM_Sales_Forecasting.ipynb
 ```
 
-**svg**
+Run the notebook cells sequentially.
 
-Run the notebook from top to bottom.
-
-### 7. Run the training script
-
-The model can also be trained directly using the Python script:
-
-```bash
-python src/train.py
-```
-
-**svg**
-
-The trained model and prediction results are saved in the `results/` directory.
+---
 
 ## 📈 Results
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-results)
-
 The trained LSTM model achieved the following results on the test dataset:
 
-```text
-MAE  : 4.3993
-RMSE : 5.5430
-```
+| Metric |  Value |
+| ------ | -----: |
+| MAE    | 4.3993 |
+| RMSE   | 5.5430 |
 
-**svg**
-
-### Mean Absolute Error — MAE
-
-MAE represents the average absolute difference between the actual and predicted sales values.
-
-```text
-MAE = 4.3993
-```
-
-### Root Mean Squared Error — RMSE
-
-RMSE measures the prediction error while giving greater importance to larger errors.
-
-```text
-RMSE = 5.5430
-```
-
-**svg**
-
-### Training and Validation Loss
+### Training Loss
 
 ![Training Loss](results/training_loss.png)
 
@@ -303,58 +245,52 @@ RMSE = 5.5430
 
 ![Actual vs Predicted Sales](results/actual_vs_predicted.png)
 
-## 🔍 Project Workflow
+> Note: LSTM training can produce slightly different results between runs because of the stochastic nature of neural network training.
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-project-workflow)
+---
+
+## 🔍 Project Workflow
 
 ```text
 Sales Dataset
       │
       ▼
-Load Dataset
+Data Cleaning
       │
       ▼
-Convert Date
-      │
-      ▼
-Sort Chronologically
+Date Conversion & Sorting
       │
       ▼
 Train-Test Split
       │
       ▼
-Normalize Sales
+MinMax Scaling
       │
       ▼
 Create 7-Day Sequences
       │
       ▼
-Build LSTM Model
+LSTM Model
       │
       ▼
-Compile Model
+Model Training
       │
       ▼
-Train Model
+Sales Prediction
       │
       ▼
-Generate Predictions
+Inverse Scaling
       │
       ▼
-Calculate MAE & RMSE
+MAE & RMSE Evaluation
       │
       ▼
-Visualize Results
-      │
-      ▼
-Save Model & Results
+Visualization & Model Saving
 ```
 
-**svg**
+---
 
 ## 📁 Repository Structure
-
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-repository-structure)
 
 ```text
 lstm-sales-forecasting/
@@ -368,32 +304,27 @@ lstm-sales-forecasting/
 ├── results/
 │   ├── actual_vs_predicted.png
 │   ├── training_loss.png
+│   ├── lstm_sales_model.keras
 │   ├── metrics.csv
-│   ├── predictions.csv
-│   └── lstm_sales_model.keras
+│   └── predictions.csv
 │
 ├── src/
 │   └── train.py
 │
-├── README.md
-├── requirements.txt
 ├── .gitignore
-└── LICENSE
+├── README.md
+└── requirements.txt
 ```
 
-**svg**
+---
 
 ## 💾 Trained Model
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-trained-model)
-
-The trained LSTM model is saved in the `.keras` format:
+The trained LSTM model is saved as:
 
 ```text
 results/lstm_sales_model.keras
 ```
-
-**svg**
 
 The model can be loaded using:
 
@@ -403,69 +334,65 @@ from tensorflow.keras.models import load_model
 model = load_model("results/lstm_sales_model.keras")
 ```
 
-The repository also contains:
-
-```text
-results/metrics.csv
-results/predictions.csv
-```
-
-which store the evaluation metrics and actual versus predicted values.
+---
 
 ## 📚 Key Concepts Demonstrated
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-key-concepts-demonstrated)
+### Deep Learning
 
-This project demonstrates the following deep learning and time-series concepts:
-
-* Time-Series Forecasting
-* Historical Data Analysis
-* Data Preprocessing
-* Chronological Train-Test Split
-* Feature Scaling
-* Min-Max Normalization
-* Sliding Window Sequences
-* Lookback Window
 * LSTM Neural Networks
-* Sequential Model Architecture
-* Dense Output Layer
-* Adam Optimizer
-* Mean Squared Error
-* Model Training
-* Model Validation
-* Sales Prediction
-* Mean Absolute Error
-* Root Mean Squared Error
-* Prediction Visualization
-* Model Saving
-* Git and GitHub
+* Sequential Models
+* Backpropagation Through Time
 
-## 🔮 Future Improvements
+### Time-Series Forecasting
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#-future-improvements)
+* Sequential data
+* Sliding windows
+* Lookback periods
+* Future value prediction
 
-Possible improvements include:
+### Data Preprocessing
 
-* Predict multiple future days instead of only the next day
-* Experiment with different lookback windows
-* Compare LSTM with GRU architectures
-* Add Dropout for regularization
-* Perform hyperparameter tuning
-* Compare different optimizers
-* Include additional features such as holidays and promotions
-* Perform multivariate time-series forecasting
-* Compare LSTM predictions with traditional forecasting methods
-* Build a simple web interface for sales forecasting
-* Deploy the forecasting model as an API
+* Data normalization
+* Train-test splitting
+* Sequence generation
 
-## 👨‍💻 Author
+### Model Evaluation
 
-[svg](https://github.com/rohanbangar2509/Deep-Learning/tree/main/lstm-sales-forecasting#%E2%80%8D-author)
+* Mean Absolute Error (MAE)
+* Root Mean Squared Error (RMSE)
 
-**Rohan Bangar**
+### Visualization
 
-B.Tech — Artificial Intelligence
+* Training loss
+* Actual vs predicted values
 
 ---
 
-⭐ If you found this project useful, consider giving the repository a star.
+## 🔮 Future Improvements
+
+The project can be extended by:
+
+* Using multiple stores and items
+* Adding additional features
+* Using longer lookback windows
+* Comparing LSTM with GRU
+* Comparing LSTM with traditional forecasting models
+* Hyperparameter tuning
+* Multi-step forecasting
+* Deploying the model as an API
+* Building a sales forecasting dashboard
+
+---
+
+## 👨‍💻 Author
+
+**Rohan Bangar**
+
+B.Tech — Computer Science & Engineering (Artificial Intelligence)
+
+Vishwakarma Institute of Technology, Pune
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
