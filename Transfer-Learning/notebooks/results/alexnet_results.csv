@@ -1,0 +1,2 @@
+Model,Test Accuracy,Test Loss,Training Time (min),Total Parameters,Trainable Parameters
+AlexNet,0.8374,0.4857652062892914,6.6388255579000015,57044810,54575114

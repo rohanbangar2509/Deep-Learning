@@ -1,0 +1,10 @@
+# Transfer Learning datasets
+notebooks/data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+*_venv/

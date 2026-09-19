@@ -1,0 +1,2 @@
+Model,Test Accuracy,Test Loss,Training Time (min),Total Parameters,Trainable Parameters
+EfficientNetB0,0.7984,0.593477110338211,7.818436295850006,4020358,12810

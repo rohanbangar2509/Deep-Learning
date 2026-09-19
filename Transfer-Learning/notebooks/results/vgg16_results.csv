@@ -1,0 +1,2 @@
+Model,Test Accuracy,Test Loss,Training Time (min),Total Parameters,Trainable Parameters
+VGG16,0.8556,0.5279909939289092,27.85194601995,134301514,119586826
