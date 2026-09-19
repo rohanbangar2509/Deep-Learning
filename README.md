@@ -4,7 +4,7 @@ Welcome to my Deep Learning repository.
 
 This repository documents my journey of learning and exploring Deep Learning concepts through hands-on implementations, experiments, assignments, and projects.
 
-The goal of this repository is to understand the fundamentals of Deep Learning and gradually progress toward more advanced architectures and real-world applications.
+The goal of this repository is to build a strong understanding of Deep Learning fundamentals and gradually progress toward advanced architectures, computer vision, sequence modeling, transfer learning, and real-world applications.
 
 ---
 
@@ -50,11 +50,13 @@ I have worked with model creation, compilation, training, evaluation, and predic
 I have explored Deep Learning for image classification, including:
 
 - Image preprocessing
+- Image resizing
 - Image normalization
 - Dataset exploration
 - Image visualization
 - Neural networks for image classification
 - Convolutional Neural Networks (CNN)
+- Feature extraction
 - Model training
 - Model evaluation
 - Prediction on unseen images
@@ -74,8 +76,10 @@ Concepts explored include:
 - Backpropagation
 - Loss functions
 - Optimizers
+- Feature scaling
 - Model training
 - Model evaluation
+- Multi-class classification
 - Classification using tabular data
 
 ---
@@ -95,9 +99,91 @@ Concepts explored include:
 - Fully connected layers
 - Image preprocessing
 - Image normalization
+- Feature extraction
 - Model training
 - Model evaluation
 - Multi-class image classification
+
+---
+
+### 6. Transfer Learning
+
+I have explored **Transfer Learning** using popular pre-trained CNN architectures.
+
+Architectures explored include:
+
+- AlexNet
+- VGG16
+- ResNet50
+- EfficientNet
+
+Concepts explored include:
+
+- Pre-trained models
+- ImageNet weights
+- Feature extraction
+- Freezing layers
+- Fine-tuning
+- Transfer learning
+- Model comparison
+- Image preprocessing
+- Model evaluation
+
+---
+
+### 7. Recurrent Neural Networks (RNN)
+
+I have explored **Recurrent Neural Networks (RNNs)** for sequence-based tasks.
+
+Concepts explored include:
+
+- Sequential data
+- RNN architecture
+- Hidden states
+- Sequence processing
+- Embedding layers
+- SimpleRNN
+- Dropout
+- Binary classification
+- Model training
+- Model evaluation
+
+---
+
+### 8. Long Short-Term Memory (LSTM)
+
+I have explored **Long Short-Term Memory (LSTM)** networks for sequence modeling and time-series forecasting.
+
+Concepts explored include:
+
+- LSTM architecture
+- Memory cells
+- Hidden states
+- Cell states
+- Input, forget, and output gates
+- Sequence modeling
+- Time-series forecasting
+- Sliding windows
+- Model training
+- Prediction
+
+---
+
+### 9. Gated Recurrent Unit (GRU)
+
+I have explored **Gated Recurrent Units (GRU)** for sequence classification.
+
+Concepts explored include:
+
+- GRU architecture
+- Update gate
+- Reset gate
+- Sequence modeling
+- Embedding
+- Recurrent layers
+- Dropout
+- Classification
+- Model evaluation
 
 ---
 
@@ -189,36 +275,153 @@ The model was developed and trained using **TensorFlow/Keras** with GPU accelera
 
 ---
 
-## 🔬 Topics I Plan to Explore
+### 🔁 RNN, LSTM & GRU Sequence Classification
 
-- Data Augmentation
-- Transfer Learning
+A sequence classification project exploring and comparing three major recurrent neural network architectures:
+
+- RNN
+- LSTM
+- GRU
+
+The project focuses on understanding how different recurrent architectures process sequential data and learn patterns from sequences.
+
+**Architectures explored:**
+
+- SimpleRNN
+- LSTM
+- GRU
+
+**Concepts explored:**
+
+- Sequence classification
+- Embedding layers
+- Recurrent neural networks
+- Hidden states
+- LSTM memory cells
+- GRU gates
+- Dropout
+- Binary classification
+- Model training
+- Model evaluation
+- RNN vs LSTM vs GRU comparison
+
+📂 **Project:** [RNN-LSTM-GRU Sequence Classification](./RNN-LSTM-GRU-Sequence-Classification)
+
+---
+
+### 📈 LSTM Sales Forecasting
+
+A time-series forecasting project using **Long Short-Term Memory (LSTM)** networks to learn patterns from historical sales data and predict future sales.
+
+The project focuses on applying recurrent neural networks to sequential time-series data.
+
+**Concepts explored:**
+
+- Time-series data
+- Data preprocessing
+- Data normalization
+- Sequence generation
+- Sliding windows
+- LSTM networks
+- Sequential data
+- Model training
+- Forecasting
+- Prediction
+- Model evaluation
+
+📂 **Project:** [LSTM Sales Forecasting](./LSTM-Sales-Forecasting)
+
+---
+
+### 🔄 Transfer Learning with AlexNet, VGG16, ResNet50 & EfficientNet
+
+A computer vision project exploring **Transfer Learning** using multiple pre-trained CNN architectures.
+
+The project implements and compares different architectures for image classification:
+
 - AlexNet
-- VGG
-- ResNet
+- VGG16
+- ResNet50
 - EfficientNet
-- Object Detection
-- Recurrent Neural Networks (RNN)
-- Long Short-Term Memory (LSTM)
-- Gated Recurrent Unit (GRU)
-- Autoencoders
-- Generative Deep Learning
-- Model Deployment
+
+The models use pre-trained knowledge to extract useful image features and perform classification on a target dataset.
+
+**Concepts explored:**
+
+- Transfer Learning
+- Pre-trained CNN architectures
+- AlexNet
+- VGG16
+- ResNet50
+- EfficientNet
+- ImageNet weights
+- Feature extraction
+- Frozen layers
+- Fine-tuning
+- Image preprocessing
+- Data augmentation
+- Model training
+- Model evaluation
+- Model comparison
+
+📂 **Project:** [Transfer Learning](./Transfer-Learning)
+
+---
+
+## 📊 Deep Learning Areas Covered
+
+| Area | Concepts / Architectures |
+|---|---|
+| Neural Networks | ANN, Forward Propagation, Backpropagation |
+| Classification | Binary & Multi-class Classification |
+| MLP | Multilayer Perceptron |
+| CNN | Convolution, Pooling, Feature Extraction |
+| Computer Vision | Image Classification, Traffic Signs |
+| Transfer Learning | AlexNet, VGG16, ResNet50, EfficientNet |
+| RNN | SimpleRNN, Sequence Processing |
+| LSTM | Sequence Modeling, Time-Series Forecasting |
+| GRU | Gated Recurrent Units, Sequence Classification |
+| Time Series | LSTM-based Sales Forecasting |
 
 ---
 
 ## 🛠️ Tools & Technologies
 
+### Programming
+
 - Python
+
+### Deep Learning
+
 - TensorFlow
 - Keras
+
+### Machine Learning
+
 - Scikit-learn
+
+### Data Processing
+
 - NumPy
 - Pandas
+
+### Visualization
+
 - Matplotlib
+
+### Development
+
 - Jupyter Notebook
+
+### Version Control
+
 - Git
 - GitHub
+
+### Hardware Acceleration
+
+- NVIDIA CUDA
+- GPU-accelerated training
 
 ---
 
@@ -227,11 +430,19 @@ The model was developed and trained using **TensorFlow/Keras** with GPU accelera
 ```text
 Deep-Learning/
 │
-├── forward-backward-propagation/
-│   ├── notebooks/
+├── LSTM-Sales-Forecasting/
 │   └── README.md
 │
-├── mnist-digit-classification/
+├── RNN-LSTM-GRU-Sequence-Classification/
+│   └── README.md
+│
+├── Transfer-Learning/
+│   ├── notebooks/
+│   ├── .gitignore
+│   ├── README.md
+│   └── requirements.txt
+│
+├── forward-backward-propagation/
 │   ├── notebooks/
 │   └── README.md
 │
@@ -239,13 +450,17 @@ Deep-Learning/
 │   ├── notebooks/
 │   └── README.md
 │
+├── mnist-digit-classification/
+│   ├── notebooks/
+│   └── README.md
+│
 ├── traffic-sign-cnn/
 │   ├── models/
 │   ├── notebooks/
-|   ├── .gitignore
-|   ├── README.md
+│   ├── .gitignore
+│   ├── README.md
 │   └── requirements.txt
 │
 ├── .gitignore
-├── requirements.txt
-└── README.md
+├── README.md
+└── requirements.txt
