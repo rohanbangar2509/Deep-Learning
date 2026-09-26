@@ -1,102 +1,55 @@
-# BERT Sentiment Analysis on IMDb
+# BERT Sentiment Analysis using Hugging Face Transformers
 
-## Assignment
-**Implement a pre-trained BERT model for sentiment analysis or text classification on a sample dataset.**
+A deep learning project that uses a pre-trained BERT (`bert-base-uncased`) model with PyTorch and Hugging Face Transformers to classify movie reviews as positive or negative using the IMDb dataset.
 
-This project fine-tunes `bert-base-uncased` for binary sentiment classification using the IMDb movie-review dataset.
+## 📌 Project Overview
 
-## Dataset
-The project uses the Hugging Face dataset:
+This project demonstrates the complete workflow of applying a pre-trained Transformer model to a Natural Language Processing (NLP) classification problem:
 
-`stanfordnlp/imdb`
+* Loading the IMDb sentiment-analysis dataset
+* Exploring the text dataset
+* Analyzing class distribution
+* Analyzing review lengths
+* Loading a pre-trained BERT tokenizer
+* Tokenizing text data
+* Creating attention masks and input IDs
+* Preparing PyTorch DataLoaders
+* Loading a pre-trained BERT model
+* Adding a classification head
+* Fine-tuning BERT on the IMDb dataset
+* Evaluating model performance
+* Generating classification metrics
+* Visualizing the confusion matrix
+* Visualizing training and validation performance
+* Performing sentiment prediction on custom text
+* Saving the fine-tuned BERT model
 
-Labels:
-- `0` = Negative
-- `1` = Positive
+The project uses transfer learning, where a BERT model that has already learned general language representations from large-scale text is fine-tuned for the specific task of binary sentiment classification.
 
-## Model
-- Pre-trained model: `bert-base-uncased`
-- Task: Binary text classification
-- Fine-tuning framework: PyTorch + Hugging Face Transformers
+## 🧠 Model Architecture
 
-## Project Structure
+The project uses the pre-trained `bert-base-uncased` model followed by a classification layer for two sentiment classes.
 
 ```text
-BERT_Sentiment_Analysis_IMDb/
-├── BERT_IMDb_Sentiment_Analysis.ipynb
-├── train.py
-├── predict.py
-├── requirements.txt
-├── README.md
-└── outputs/
-    └── bert-imdb/
-```
-
-## Installation
-
-```bash
-python -m venv .bert_venv
-```
-
-Windows:
-```bash
-.bert_venv\Scripts\activate
-```
-
-Linux / WSL:
-```bash
-source .bert_venv/bin/activate
-```
-
-```bash
-pip install -r requirements.txt
-```
-
-## Training
-
-```bash
-python train.py
-```
-
-The default experiment uses:
-- 8,000 training reviews
-- 2,000 validation reviews
-- 2,000 test reviews
-- Maximum sequence length: 256
-- Batch size: 8
-- Epochs: 2
-- Learning rate: 2e-5
-
-These settings are intentionally suitable for student hardware. For a larger experiment, increase the sample sizes and/or epochs in `train.py`.
-
-## Inference
-
-After training:
-
-```bash
-python predict.py --text "The movie was fantastic, emotional and very well acted."
-```
-
-## Notebook
-`BERT_IMDb_Sentiment_Analysis.ipynb` contains the complete step-by-step implementation:
-1. Objective and theory
-2. Environment setup
-3. Dataset loading
-4. Dataset exploration
-5. BERT tokenizer
-6. Tokenization and padding
-7. Model initialization
-8. Fine-tuning
-9. Validation
-10. Test evaluation
-11. Confusion matrix
-12. Training curves
-13. Custom review prediction
-14. Conclusion
-
-## Expected Academic Conclusion
-The experiment demonstrates how a pre-trained BERT language model can be fine-tuned for downstream sentiment classification. BERT's contextual representation allows the model to capture semantic information from movie reviews and classify them as positive or negative. The final accuracy, precision, recall, F1-score and confusion matrix should be reported from the actual run rather than hard-coded.
-
-## References
-- Hugging Face Transformers documentation: https://huggingface.co/docs/transformers/main/tasks/sequence_classification
-- IMDb dataset: https://huggingface.co/datasets/stanfordnlp/imdb
+Input Movie Review
+        │
+        ▼
+BERT Tokenizer
+        │
+        ├── Input IDs
+        ├── Attention Mask
+        └── Token Type IDs
+        │
+        ▼
+Pre-trained BERT
+        │
+        │ Contextual Language Representation
+        ▼
+Classification Head
+        │
+        │ 2 Output Logits
+        ▼
+Softmax
+        │
+        ├── Negative
+        └── Positive
