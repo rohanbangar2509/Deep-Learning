@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Downloaded data
+data/*
+!data/.gitkeep
+
+# Models and generated results
+models/*
+!models/.gitkeep
+results/*
+!results/.gitkeep
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
