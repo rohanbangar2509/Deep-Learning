@@ -1,466 +1,211 @@
-# 🧠 Deep Learning
+# 🧠 Deep Learning Lab
 
-Welcome to my Deep Learning repository.
+A hands-on collection of deep learning experiments and projects covering neural network fundamentals, computer vision, transfer learning, sequence modeling, NLP, Transformers, and audio applications.
 
-This repository documents my journey of learning and exploring Deep Learning concepts through hands-on implementations, experiments, assignments, and projects.
+This repository is a practical learning portfolio: each project explores a specific problem, implements a model or workflow, and documents the approach, tools, and evaluation. Project-level READMEs contain the detailed setup instructions and methodology.
 
-The goal of this repository is to build a strong understanding of Deep Learning fundamentals and gradually progress toward advanced architectures, computer vision, sequence modeling, transfer learning, and real-world applications.
-
----
-
-## 📚 What I Have Explored
-
-### 1. Neural Network Fundamentals
-
-I have explored the fundamental concepts behind neural networks, including:
-
-- Artificial Neural Networks (ANN)
-- Neurons and Layers
-- Weights and Biases
-- Forward Propagation
-- Backpropagation
-- Activation Functions
-- Loss Functions
-- Gradient Descent
-- Optimizers
-- Learning Rate
-- Epochs
-- Batch Size
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-Projects-orange?logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-Projects-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Jupyter](https://img.shields.io/badge/Notebooks-Jupyter-orange?logo=jupyter&logoColor=white)](https://jupyter.org/)
 
 ---
 
-### 2. Deep Learning with TensorFlow & Keras
+## 🧭 Project Index
 
-Hands-on implementation using:
-
-- TensorFlow
-- Keras
-- NumPy
-- Pandas
-- Matplotlib
-- Scikit-learn
-- Jupyter Notebook
-
-I have worked with model creation, compilation, training, evaluation, and prediction using TensorFlow/Keras.
-
----
-
-### 3. Image Classification
-
-I have explored Deep Learning for image classification, including:
-
-- Image preprocessing
-- Image resizing
-- Image normalization
-- Dataset exploration
-- Image visualization
-- Neural networks for image classification
-- Convolutional Neural Networks (CNN)
-- Feature extraction
-- Model training
-- Model evaluation
-- Prediction on unseen images
+| Project | Focus | Main tools / methods |
+|---|---|---|
+| [Forward & Backward Propagation](./forward-backward-propagation) | MLP fundamentals, gradients, learning-rate and epoch experiments | TensorFlow/Keras, Iris dataset |
+| [MNIST Digit Classification](./mnist-digit-classification) | Handwritten digit classification | TensorFlow/Keras, MNIST |
+| [MLP Wine Classification](./mlp-wine-classification) | Multi-class classification on tabular data; compare MLP architectures | scikit-learn, Wine dataset |
+| [Traffic Sign CNN](./traffic-sign-cnn) | 43-class traffic-sign image classification | TensorFlow/Keras, CNN, GTSRB |
+| [Transfer Learning](./Transfer-Learning) | Compare pretrained CNN architectures on image classification | AlexNet, VGG16, ResNet50, EfficientNetB0, CIFAR-10 |
+| [RNN, LSTM & GRU Sequence Classification](./RNN-LSTM-GRU-Sequence-Classification) | Compare recurrent networks for text sequence classification | TensorFlow/Keras, IMDb reviews |
+| [LSTM Sales Forecasting](./LSTM-Sales-Forecasting) | Next-day sales forecasting from historical observations | TensorFlow/Keras, time series |
+| [BERT IMDb Sentiment Analysis](./BERT_Sentiment_Analysis_IMDb) | Fine-tune a pretrained Transformer for review sentiment | PyTorch, Hugging Face Transformers, BERT |
+| [Vision Transformer vs CNN](./ViT_vs_CNN_Image_Classification) | Experimentally compare a pretrained ViT with a CNN | PyTorch, Torchvision, CIFAR-10 |
+| [Audio Classification, STT & TTS](./audio_classification_stt_tts) | Spoken-command classification and speech input/output | TensorFlow/Keras, CNN, log-Mel spectrograms, STT/TTS |
 
 ---
 
-### 4. Multilayer Perceptron (MLP)
+## 📚 Topics Covered
 
-I have explored **Multilayer Perceptrons (MLP)** for classification tasks.
+### Neural network foundations
+- Artificial neural networks and multilayer perceptrons
+- Neurons, layers, weights, and biases
+- Forward propagation, loss calculation, backpropagation, and gradient-based optimization
+- Activation and loss functions, learning rate, epochs, and batch size
+- Feature scaling, train/test splits, and classification metrics
 
-Concepts explored include:
+### Computer vision
+- Image loading, visualization, resizing, normalization, and augmentation
+- Convolution, filters, feature maps, pooling, and dense classification heads
+- Multi-class image classification and error analysis
+- Transfer learning, frozen feature extractors, and fine-tuning
+- CNN and Vision Transformer comparison
 
-- MLP architecture
-- Input, hidden, and output layers
-- Activation functions
-- Forward propagation
-- Backpropagation
-- Loss functions
-- Optimizers
-- Feature scaling
-- Model training
-- Model evaluation
-- Multi-class classification
-- Classification using tabular data
+### Sequence modeling and forecasting
+- SimpleRNN, LSTM, and GRU
+- Embedding layers, hidden states, memory cells, and gates
+- Text sequence classification
+- Time-series windows, chronological splits, and sales forecasting
 
----
+### NLP and Transformers
+- Text tokenization and padding
+- BERT fine-tuning for binary sentiment classification
+- Attention masks, pretrained language models, and inference
+- Accuracy, precision, recall, F1-score, and confusion matrices
 
-### 5. Convolutional Neural Networks (CNN)
-
-I have explored **Convolutional Neural Networks (CNNs)** for image classification.
-
-Concepts explored include:
-
-- CNN architecture
-- Convolutional layers
-- Filters and kernels
-- Feature maps
-- Pooling layers
-- Flattening
-- Fully connected layers
-- Image preprocessing
-- Image normalization
-- Feature extraction
-- Model training
-- Model evaluation
-- Multi-class image classification
+### Audio applications
+- Waveform preprocessing and log-Mel spectrograms
+- CNN-based spoken-command classification
+- Speech-to-text (STT) and text-to-speech (TTS) integration
+- Model saving and prediction on new audio
 
 ---
 
-### 6. Transfer Learning
+## 🏆 Documented Project Highlight
 
-I have explored **Transfer Learning** using popular pre-trained CNN architectures.
+### Traffic Sign Classification — GTSRB
 
-Architectures explored include:
+The [Traffic Sign CNN project](./traffic-sign-cnn) documents a CNN trained to classify **43 traffic-sign categories** from the German Traffic Sign Recognition Benchmark.
 
-- AlexNet
-- VGG16
-- ResNet50
-- EfficientNet
+| Metric | Reported result |
+|---|---:|
+| Test accuracy | **99.27%** |
+| Macro precision | **99.28%** |
+| Macro recall | **99.45%** |
+| Macro F1-score | **99.36%** |
 
-Concepts explored include:
-
-- Pre-trained models
-- ImageNet weights
-- Feature extraction
-- Freezing layers
-- Fine-tuning
-- Transfer learning
-- Model comparison
-- Image preprocessing
-- Model evaluation
-
----
-
-### 7. Recurrent Neural Networks (RNN)
-
-I have explored **Recurrent Neural Networks (RNNs)** for sequence-based tasks.
-
-Concepts explored include:
-
-- Sequential data
-- RNN architecture
-- Hidden states
-- Sequence processing
-- Embedding layers
-- SimpleRNN
-- Dropout
-- Binary classification
-- Model training
-- Model evaluation
-
----
-
-### 8. Long Short-Term Memory (LSTM)
-
-I have explored **Long Short-Term Memory (LSTM)** networks for sequence modeling and time-series forecasting.
-
-Concepts explored include:
-
-- LSTM architecture
-- Memory cells
-- Hidden states
-- Cell states
-- Input, forget, and output gates
-- Sequence modeling
-- Time-series forecasting
-- Sliding windows
-- Model training
-- Prediction
-
----
-
-### 9. Gated Recurrent Unit (GRU)
-
-I have explored **Gated Recurrent Units (GRU)** for sequence classification.
-
-Concepts explored include:
-
-- GRU architecture
-- Update gate
-- Reset gate
-- Sequence modeling
-- Embedding
-- Recurrent layers
-- Dropout
-- Classification
-- Model evaluation
-
----
-
-## 🚀 Projects & Implementations
-
-### 🔄 Forward & Backward Propagation
-
-An implementation focused on understanding the fundamental learning process of neural networks.
-
-The project explores how data passes through a neural network during **forward propagation** and how errors are propagated backward during **backpropagation** to update weights and biases.
-
-**Concepts explored:**
-
-- Forward Propagation
-- Backpropagation
-- Weights and Biases
-- Activation Functions
-- Loss Calculation
-- Gradient Descent
-- Parameter Updates
-
-📂 **Project:** [Forward & Backward Propagation](./forward-backward-propagation)
-
----
-
-### 🔢 MNIST Handwritten Digit Classification
-
-A Deep Learning project for classifying handwritten digits from the **MNIST dataset** using TensorFlow/Keras.
-
-**Concepts explored:**
-
-- Dataset loading
-- Data preprocessing
-- Image normalization
-- Neural network architecture
-- Model training
-- Model evaluation
-- Digit prediction
-
-📂 **Project:** [MNIST Digit Classification](./mnist-digit-classification)
-
----
-
-### 🍷 MLP Wine Classification
-
-A classification project using a **Multilayer Perceptron (MLP)** on the Wine dataset.
-
-The project focuses on understanding how neural networks can be applied to structured/tabular data for multi-class classification.
-
-**Concepts explored:**
-
-- Wine dataset
-- Data preprocessing
-- Feature scaling
-- Train-test split
-- MLP Classifier
-- Neural network architecture
-- Model training
-- Model evaluation
-- Classification performance
-
-📂 **Project:** [MLP Wine Classification](./mlp-wine-classification)
-
----
-
-### 🚦 CNN-Based Traffic Sign Classification
-
-A Deep Learning project that uses a **Convolutional Neural Network (CNN)** to classify traffic sign images into **43 different classes** using the **German Traffic Sign Recognition Benchmark (GTSRB)** dataset.
-
-The model was developed and trained using **TensorFlow/Keras** with GPU acceleration.
-
-**Concepts explored:**
-
-- Convolutional Neural Networks
-- Image preprocessing
-- Image resizing
-- Image normalization
-- Dataset exploration
-- Data visualization
-- Convolutional layers
-- Pooling layers
-- Feature extraction
-- Multi-class classification
-- Model training
-- Model evaluation
-- Prediction on unseen traffic sign images
-
-📂 **Project:** [Traffic Sign CNN](./traffic-sign-cnn)
-
----
-
-### 🔁 RNN, LSTM & GRU Sequence Classification
-
-A sequence classification project exploring and comparing three major recurrent neural network architectures:
-
-- RNN
-- LSTM
-- GRU
-
-The project focuses on understanding how different recurrent architectures process sequential data and learn patterns from sequences.
-
-**Architectures explored:**
-
-- SimpleRNN
-- LSTM
-- GRU
-
-**Concepts explored:**
-
-- Sequence classification
-- Embedding layers
-- Recurrent neural networks
-- Hidden states
-- LSTM memory cells
-- GRU gates
-- Dropout
-- Binary classification
-- Model training
-- Model evaluation
-- RNN vs LSTM vs GRU comparison
-
-📂 **Project:** [RNN-LSTM-GRU Sequence Classification](./RNN-LSTM-GRU-Sequence-Classification)
-
----
-
-### 📈 LSTM Sales Forecasting
-
-A time-series forecasting project using **Long Short-Term Memory (LSTM)** networks to learn patterns from historical sales data and predict future sales.
-
-The project focuses on applying recurrent neural networks to sequential time-series data.
-
-**Concepts explored:**
-
-- Time-series data
-- Data preprocessing
-- Data normalization
-- Sequence generation
-- Sliding windows
-- LSTM networks
-- Sequential data
-- Model training
-- Forecasting
-- Prediction
-- Model evaluation
-
-📂 **Project:** [LSTM Sales Forecasting](./LSTM-Sales-Forecasting)
-
----
-
-### 🔄 Transfer Learning with AlexNet, VGG16, ResNet50 & EfficientNet
-
-A computer vision project exploring **Transfer Learning** using multiple pre-trained CNN architectures.
-
-The project implements and compares different architectures for image classification:
-
-- AlexNet
-- VGG16
-- ResNet50
-- EfficientNet
-
-The models use pre-trained knowledge to extract useful image features and perform classification on a target dataset.
-
-**Concepts explored:**
-
-- Transfer Learning
-- Pre-trained CNN architectures
-- AlexNet
-- VGG16
-- ResNet50
-- EfficientNet
-- ImageNet weights
-- Feature extraction
-- Frozen layers
-- Fine-tuning
-- Image preprocessing
-- Data augmentation
-- Model training
-- Model evaluation
-- Model comparison
-
-📂 **Project:** [Transfer Learning](./Transfer-Learning)
-
----
-
-## 📊 Deep Learning Areas Covered
-
-| Area | Concepts / Architectures |
-|---|---|
-| Neural Networks | ANN, Forward Propagation, Backpropagation |
-| Classification | Binary & Multi-class Classification |
-| MLP | Multilayer Perceptron |
-| CNN | Convolution, Pooling, Feature Extraction |
-| Computer Vision | Image Classification, Traffic Signs |
-| Transfer Learning | AlexNet, VGG16, ResNet50, EfficientNet |
-| RNN | SimpleRNN, Sequence Processing |
-| LSTM | Sequence Modeling, Time-Series Forecasting |
-| GRU | Gated Recurrent Units, Sequence Classification |
-| Time Series | LSTM-based Sales Forecasting |
+These values are taken from the project's README and apply to that documented experiment, not to every model in this repository. See the project page for its architecture, configuration, evaluation details, and reproduction steps.
 
 ---
 
 ## 🛠️ Tools & Technologies
 
-### Programming
+| Area | Tools |
+|---|---|
+| Language | Python |
+| Deep learning frameworks | TensorFlow, Keras, PyTorch, Torchvision |
+| NLP / pretrained models | Hugging Face Transformers and Datasets |
+| Data processing | NumPy, Pandas |
+| Classical ML and metrics | scikit-learn |
+| Visualization | Matplotlib, Seaborn |
+| Experiment environment | Jupyter Notebook |
+| Acceleration | CUDA where supported by the installed framework, driver, and hardware |
+| Version control | Git and GitHub |
 
-- Python
+The projects do **not** all use one identical Python environment. Some are TensorFlow/Keras projects and others use PyTorch/Torchvision or Hugging Face libraries. Follow the requirements and setup instructions inside the specific project folder.
 
-### Deep Learning
+---
 
-- TensorFlow
-- Keras
+## 🚀 Getting Started
 
-### Machine Learning
+### 1. Clone the repository
 
-- Scikit-learn
+```bash
+git clone https://github.com/rohanbangar2509/Deep-Learning.git
+cd Deep-Learning
+```
 
-### Data Processing
+### 2. Choose a project
 
-- NumPy
-- Pandas
+Open one of the folders listed in the [Project Index](#-project-index) and read its `README.md` before installing dependencies or running code.
 
-### Visualization
+### 3. Create a project-specific environment
 
-- Matplotlib
+For example, from the repository root:
 
-### Development
+```bash
+python -m venv .venv
+```
 
-- Jupyter Notebook
+Activate it using the command for your operating system.
 
-### Version Control
+**Windows PowerShell**
 
-- Git
-- GitHub
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
 
-### Hardware Acceleration
+**Linux / macOS / WSL**
 
-- NVIDIA CUDA
-- GPU-accelerated training
+```bash
+source .venv/bin/activate
+```
+
+Then move into the chosen project directory and install that project's dependencies, where a project-level `requirements.txt` is provided:
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+> **Environment note:** The root `requirements.txt` is not a universal lockfile for every project. Use the dependency file and Python/framework compatibility notes for the project you intend to run. GPU support depends on the specific framework build, operating system, driver, and hardware; CPU execution may be available as a fallback.
+
+### 4. Run the notebook or script
+
+Use the commands and notebook paths documented in the selected project's README. Many projects are notebook-first; some also include command-line training or inference scripts.
+
+Datasets and trained checkpoints may be downloaded or generated when a project runs. Check the project's instructions before assuming these files are already present in the repository.
 
 ---
 
 ## 📁 Repository Structure
 
+The repository currently contains these top-level project folders:
+
 ```text
 Deep-Learning/
-│
+├── BERT_Sentiment_Analysis_IMDb/
 ├── LSTM-Sales-Forecasting/
-│   └── README.md
-│
 ├── RNN-LSTM-GRU-Sequence-Classification/
-│   └── README.md
-│
 ├── Transfer-Learning/
-│   ├── notebooks/
-│   ├── .gitignore
-│   ├── README.md
-│   └── requirements.txt
-│
+├── ViT_vs_CNN_Image_Classification/
+├── audio_classification_stt_tts/
 ├── forward-backward-propagation/
-│   ├── notebooks/
-│   └── README.md
-│
 ├── mlp-wine-classification/
-│   ├── notebooks/
-│   └── README.md
-│
 ├── mnist-digit-classification/
-│   ├── notebooks/
-│   └── README.md
-│
 ├── traffic-sign-cnn/
-│   ├── models/
-│   ├── notebooks/
-│   ├── .gitignore
-│   ├── README.md
-│   └── requirements.txt
-│
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+```
+
+See the individual project directories for notebooks, scripts, project-specific dependencies, dataset instructions, and outputs.
+
+---
+
+## 📊 Evaluation Practices
+
+Depending on the task, projects use metrics and diagnostic artifacts such as:
+
+- **Classification:** accuracy, precision, recall, F1-score, classification reports, and confusion matrices.
+- **Forecasting:** MAE, RMSE, and plots comparing actual and predicted values.
+- **Model comparison:** training history, parameter counts, training time, and common test sets where documented.
+- **Error analysis:** sample predictions and misclassified examples.
+
+Results depend on the dataset split, preprocessing, hyperparameters, random seed, framework version, and compute environment. Refer to each project's README for reported results; do not assume values are directly comparable across different tasks or datasets.
+
+---
+
+## 🔭 Possible Next Steps
+
+Potential extensions across the collection include:
+- Add reproducible experiment configurations and consistent metric exports.
+- Compare baseline models against stronger architectures on the same held-out data.
+- Track experiments, seeds, package versions, and hardware used.
+- Add lightweight inference demos or APIs for selected projects.
+- Improve automated tests and environment setup instructions.
+
+---
+
+## 👨‍💻 Author
+
+**Rohan Bangar**  
+B.Tech — Computer Science & Engineering (Artificial Intelligence)  
+Vishwakarma Institute of Technology, Pune
+
+---
+
+⭐ If you find the repository useful, explore the individual projects and consider giving it a star.
